@@ -5,6 +5,12 @@ let y = canvas.height-30;
 let dx = 2;
 let dy = -2;
 const ballRadius = 10
+const colorArray = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet']
+
+function changeColor() {
+  ctx.fillStyle = colorArray[Math.round(Math.random() * colorArray.length)]
+  ctx.fill()
+}
 
 function drawBall() {
   ctx.beginPath();
@@ -20,10 +26,14 @@ function draw() {
 
 
   if(y + dy > canvas.height -ballRadius || y + dy < ballRadius){
+    changeColor()
+    console.log(ctx.fillStyle)
     dy = -dy
   }
 
   if(x + dx > canvas.width - ballRadius || x + dx < ballRadius){
+    changeColor()
+    console.log(ctx.fillStyle)
     dx = -dx;
   }
 
